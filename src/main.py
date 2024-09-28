@@ -24,7 +24,7 @@ def autonomous_function():
     log(("Competition", "competition"), "autonomous_begin")
 
     # Reset odometry to the starting autonomous position
-    odometry.reset(PositionWithHeading(-1500, -600, -90))
+    odometry.reset(PositionWithHeading(1500, 600, 90))
 
     # Then try resetting it to GPS if GPS sensor is installed and reports high quality
     reset_odometry_to_gps()
@@ -32,7 +32,6 @@ def autonomous_function():
     intake_1st_stage.set_velocity(525, RPM)
     intake_2nd_stage.set_velocity(525, RPM)
     pid_driver.drive(-1000, True)
-
     clamp.set(True)
     intake_1st_stage.spin(REVERSE)
     intake_2nd_stage.spin(FORWARD)
