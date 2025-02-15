@@ -23,9 +23,29 @@ def autonomous_function():
 
     log(("Competition", "competition"), "autonomous_begin")
 
-    robot_position.reset(Position(1500, -600))
+    robot_position.reset(Position(1500, 600))
     inertial.set_heading(270)
 
+    reset_robot_position_and_heading_to_gps()
+
+    slow_trigger_mover.move(Position(600, 600), REVERSE)
+    clamp.set(True)
+
+    # Use this for 4-ring
+    trigger_mover.move(Position(600, 1200))
+    trigger_mover.move(Position(350, 1300))
+    trigger_mover.move(Position(600, 1200), REVERSE)
+    trigger_mover.move(Position(350, 1150))
+    wait(1500, MSEC)
+    trigger_turner.turn(180, FRAME_ABSOLUTE)
+    trigger_driver.drive(800)
+    clamp.set(False)
+
+    # Use this for 2-ring
+    # trigger_turner.turn(42, FRAME_ABSOLUTE)
+    # intake.spin_forward()
+    # trigger_mover.move(Position(-350, 1000))
+    # clamp.set(False)
 
 
     log(("Competition", "competition"), "autonomous_end")
