@@ -29,7 +29,7 @@ def autonomous_function():
     reset_robot_position_and_heading_to_gps()
 
     slow_trigger_driver.drive(-1100)
-    clamp.set(True)
+    wait_and_clamp()
     intake.spin_forward()
 
     # Use this for 4-ring
@@ -40,14 +40,14 @@ def autonomous_function():
     wait(1500, MSEC)
     trigger_turner.turn(175, FRAME_ABSOLUTE)
     trigger_driver.drive(750)
-    clamp.set(False)
+    unclamp()
     intake.stop()
 
     # Use this for 2-ring
     # trigger_turner.turn(42, FRAME_ABSOLUTE)
     # intake.spin_forward()
     # trigger_mover.move(Position(-350, 1000))
-    # clamp.set(False)
+    # unclamp()
 
 
     log(("Competition", "competition"), "autonomous_end")
