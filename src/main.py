@@ -23,39 +23,10 @@ def autonomous_function():
 
     log(("Competition", "competition"), "autonomous_begin")
 
-    robot_position.reset(Position(1500, 600))
-    inertial.set_heading(90)
+    robot_position.reset(Position(1500, -600))
+    inertial.set_heading(270)
 
-    # Then try resetting to GPS if GPS sensor is installed and reports high quality
-    reset_robot_position_and_heading_to_gps()
 
-    trigger_mover.move(Position(600, 600), REVERSE)
-    clamp.set(True)
-
-    trigger_turner.turn(318, FRAME_ABSOLUTE)
-    intake.spin_forward()
-    trigger_mover.move(Position(165, 1083))
-    trigger_mover.move(Position(104, 1220))
-    trigger_mover.move(Position(267, 855), REVERSE)
-
-    reset_robot_position_and_heading_to_gps()
-
-    trigger_mover.move(Position(626, 1202))
-
-    reset_robot_position_and_heading_to_gps()
-
-    trigger_mover.move(Position(1631, 1649))
-    trigger_mover.move(Position(1211, 1462), REVERSE)
-
-    reset_robot_position_and_heading_to_gps()
-    
-    trigger_turner.turn(181, FRAME_ABSOLUTE)
-    intake_retract.set(True)
-    trigger_mover.move(Position(1188, 113))
-    intake_retract.set(False)
-
-    wait(1000, MSEC)
-    reset_robot_position_and_heading_to_gps()
 
     log(("Competition", "competition"), "autonomous_end")
 
