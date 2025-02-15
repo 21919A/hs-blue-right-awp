@@ -34,13 +34,14 @@ def autonomous_function():
 
     # Use this for 4-ring
     trigger_mover.move(Position(600, 1200))
-    trigger_mover.move(Position(350, 1220))
+    trigger_mover.move(Position(240, 1210))
     trigger_mover.move(Position(600, 1200), REVERSE)
-    trigger_mover.move(Position(300, 1150))
+    trigger_mover.move(Position(240, 1100))
     wait(1500, MSEC)
-    trigger_turner.turn(180, FRAME_ABSOLUTE)
-    trigger_driver.drive(800)
+    trigger_turner.turn(175, FRAME_ABSOLUTE)
+    trigger_driver.drive(750)
     clamp.set(False)
+    intake.stop()
 
     # Use this for 2-ring
     # trigger_turner.turn(42, FRAME_ABSOLUTE)
