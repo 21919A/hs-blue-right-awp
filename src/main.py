@@ -24,7 +24,7 @@ def autonomous_function():
     log(("Competition", "competition"), "autonomous_begin")
 
     robot_position.reset(Position(1500, 1200))
-    inertial.set_heading(45)
+    reset_heading_to_aim(Position(600, 600), REVERSE)
 
     reset_robot_position_and_heading_to_gps()
 
@@ -47,7 +47,6 @@ def autonomous_function():
     # intake.spin_forward()
     # trigger_mover.move(Position(-350, 1000))
     # unclamp()
-
 
     log(("Competition", "competition"), "autonomous_end")
 
